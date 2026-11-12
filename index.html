@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>OKEYHAUL spreadsheet – find varer, tjek mål og QC-fotos</title>
+  <meta name="description" content="Brug denne danske OKEYHAUL spreadsheet-guide til at finde varer på CAFANS, sammenligne produktlinks og tjekke mål, QC-fotos og fragt til Danmark.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="da_DK">
+  <meta property="og:title" content="OKEYHAUL spreadsheet – dansk guide til produktvalg">
+  <meta property="og:description" content="Ti kategorier på CAFANS og konkrete råd om mål, lagerfotos og fragt til Danmark.">
+  <link rel="preconnect" href="https://nikeclprod.vtexassets.com">
+  <!--
+    Filnavn: index.html.
+    Søgeunderlag: Bings resultatside kunne ikke tilgås. De ti observerede
+    resultater nedenfor stammer fra en supplerende websøgning, uden verificeret Bing-rangering.
+    okey-haul.com/spreadsheet/ – produktoversigt og sammenligning
+    okeyhaullinks.com/spreadsheet/ – kategorier og produktkort
+    okeyhaulsheet.com/ – søgning, størrelser og QC
+    okey-haul.com/finds/ – billedkontrol og produktmål
+    okey-haul.com/products/ – katalog og varegrupper
+    okey-haul.com/ – produktsøgning og kildekontrol
+    okeyhaul.net/ – Weidian-links og kategorier
+    okeyhaullinks.com/ – bestilling og pakkefragt
+    okeyhaul.org/ – produktoversigt og QC-status
+    okeyhaul.shop/okeyhaul-news/what-is-okeyhaul-spreadsheet/ – produktkort og linktyper
+    Sekundære søgefraser: OKEYHAUL produktlinks; OKEYHAUL købsguide;
+    OKEYHAUL QC-fotos; OKEYHAUL fragt til Danmark.
+    Relaterede søgefraser: OKEYHAUL spreadsheet på dansk; find sneakers efter kategori;
+    sammenlign to produktlinks; find den oprindelige vareannonce; tjek lagerstatus for en størrelse;
+    vælg rigtig farvevariant; aflæs mål i centimeter; mål indersålen på en sneaker;
+    mål brystvidden på en hættetrøje; sammenlign længden på T-shirts; mål bukser fladt;
+    sammenlign ærmelængde på jakker; tjek justering på en kasket; tjek længden på et armbånd;
+    læs QC-fotos fra lageret; bed om et nærfoto af sømme; genkend genbrugte produktbilleder;
+    tjek om billeder viser den rigtige variant; anslå samlet pris i danske kroner;
+    sammenlign fragt med og uden skotøjsæske; forskellen på pakkevægt og volumenvægt;
+    tjek returfrist hos købsagenten; undersøg mulige importomkostninger;
+    gem sælgerlink og varenummer.
+  -->
+  <style>
+    :root{color-scheme:light;--paper:#f4f0e6;--ink:#172b27;--accent:#8a351d;--line:#beb9a9;--panel:#e7eadf}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--paper);color:var(--ink);font:1rem/1.6 system-ui,sans-serif}
+    .wrap{width:min(72rem,calc(100% - 2rem));margin-inline:auto}
+    a{color:var(--accent);text-underline-offset:.19em}
+    a:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+    header,footer{padding:1rem 0;border-block-end:1px solid var(--line)}
+    header a,footer a{font-weight:750}
+    h1,h2,h3,p,figure{margin:0}
+    h1,h2,h3{line-height:1.13}
+    h1{font-size:clamp(2.45rem,7.8vw,6rem);letter-spacing:-.055em;overflow-wrap:anywhere}
+    h2{font-size:clamp(1.5rem,4vw,2.65rem);letter-spacing:-.035em}
+    h3{font-size:1.15rem}
+    p{margin-top:.7rem}
+    .intro{padding-block:clamp(1.6rem,5vw,4rem) 1.15rem}
+    .intro p{max-width:66ch;font-size:1.08rem}
+    .lead{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1rem,3vw,2.5rem)}
+    nav{background:var(--panel);padding:clamp(.8rem,3vw,1.5rem)}
+    .categories{list-style:none;padding:0;margin:.7rem 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:1rem}
+    .categories a{display:block;padding:.56rem 0;border-top:1px solid var(--line);font-weight:650}
+    figure{background:#fff;overflow:hidden}
+    img{display:block;width:100%;height:auto;object-fit:contain}
+    .lead img{aspect-ratio:4/3}
+    figcaption{padding:.55rem .8rem;font-size:.88rem}
+    section{margin-block:clamp(2rem,6vw,4.5rem)}
+    article{display:grid;grid-template-columns:minmax(10rem,1fr) 2fr;gap:.9rem;padding:1rem 0;border-top:1px solid var(--line)}
+    article:first-of-type{margin-top:1rem}
+    article p{margin:0;max-width:72ch}
+    .gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.75rem;margin-top:1rem}
+    .gallery img{aspect-ratio:1;object-fit:contain}
+    details{border-bottom:1px solid var(--line);padding:.75rem 0}
+    summary{cursor:pointer;font-weight:700}
+    .cta{display:inline-block;margin-top:1.2rem;padding:.55rem .95rem;background:var(--ink);color:white;font-weight:700}
+    footer{border-block:1px solid var(--line) 0}
+    @media(max-width:45rem){.lead,article{grid-template-columns:1fr}.gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "name": "OKEYHAUL spreadsheet – dansk guide til produktvalg",
+    "inLanguage": "da",
+    "mainEntity": [
+      {"@type":"Question","name":"Hvad er et OKEYHAUL spreadsheet?","acceptedAnswer":{"@type":"Answer","text":"Det er en oversigt, der samler produktlinks og gør det lettere at finde varer efter kategori. Denne uafhængige guide leder videre til kategorier på CAFANS."}},
+      {"@type":"Question","name":"Hvad kan jeg se på QC-fotos?","acceptedAnswer":{"@type":"Answer","text":"Du kan tjekke synlige detaljer som farve, mærkning og sømme. Bed om et foto med målebånd, hvis størrelsen er afgørende. Fotos alene kan ikke fastslå ægtheden."}},
+      {"@type":"Question","name":"Hvordan anslår jeg den samlede pris i Danmark?","acceptedAnswer":{"@type":"Answer","text":"Læg varepris, lokal fragt, agentens gebyrer og international fragt sammen. Undersøg mulige importomkostninger, og omregn beløbet til danske kroner med den kurs, du forventer at betale."}},
+      {"@type":"Question","name":"Hvad gør jeg, hvis et produktlink er udløbet?","acceptedAnswer":{"@type":"Answer","text":"Søg efter varenummer eller model i samme kategori. Sammenlign den nye annonces billeder, mål og variant med dine noter, før du bruger linket."}}
+    ]
+  }
+  </script>
+<link rel="canonical" href="https://kakobuyfinds.github.io/yyakg/">
+</head>
+<body>
+  <header><div class="wrap"><a href="https://www.cafans.com">www.cafans.com</a></div></header>
+  <main class="wrap">
+    <div class="intro">
+      <h1>OKEYHAUL spreadsheet</h1>
+      <p>Find den rette varekategori, og brug guiden til at sammenligne annoncer, før du bestiller. Start med den ønskede variant, tjek målene, og se efter billeder af varen på lageret.</p>
+    </div>
+    <div class="lead">
+      <nav aria-labelledby="kategorier">
+        <h2 id="kategorier">Vælg en kategori</h2>
+        <ul class="categories">
+          <li><a href="https://cafans.com/category-911-Shoes.html">Sko</a></li>
+          <li><a href="https://cafans.com/category-912-Hoodies%2FSweaters.html">Hættetrøjer og trøjer</a></li>
+          <li><a href="https://cafans.com/category-913-T-Shirts.html">T-shirts</a></li>
+          <li><a href="https://cafans.com/category-914-Jackets.html">Jakker</a></li>
+          <li><a href="https://cafans.com/category-915-Pants%2FShorts.html">Bukser og shorts</a></li>
+          <li><a href="https://cafans.com/category-916-Headwear.html">Hovedbeklædning</a></li>
+          <li><a href="https://cafans.com/category-917-Sets.html">Sæt</a></li>
+          <li><a href="https://cafans.com/category-918-underwear%2Funderpants.html">Undertøj</a></li>
+          <li><a href="https://cafans.com/category-919-Jersey.html">Sportstrøjer</a></li>
+          <li><a href="https://cafans.com/category-920-Accessories.html">Tilbehør</a></li>
+        </ul>
+      </nav>
+      <figure>
+        <img src="https://nikeclprod.vtexassets.com/arquivos/ids/160793-640-480/CW2288_111_A_PREM.jpg?v=637654399803530000" width="640" height="480" alt="Hvid Nike Air Force 1 ’07 med hvid sål og snørebånd" fetchpriority="high">
+        <figcaption>Nike Air Force 1 ’07 som eksempel på en lav sneaker.</figcaption>
+      </figure>
+    </div>
+
+    <section aria-labelledby="koebsguide">
+      <h2 id="koebsguide">Købsguide til produktlinks, mål og fragt</h2>
+      <article>
+        <h3>Gem den rigtige variant</h3>
+        <p>Når du sammenligner OKEYHAUL produktlinks, så åbn den oprindelige vareannonce og vælg farve og størrelse. Kontrollér lagerstatus for den valgte kombination. Gem sælgerlink og varenummer sammen med dine noter, så du kan finde samme variant igen.</p>
+      </article>
+      <article>
+        <h3>Mål noget, du allerede bruger</h3>
+        <p>Mål indersålen på en sneaker, der passer. Læg en hættetrøje fladt, og mål fra armhule til armhule. Sammenlign med sælgerens mål i centimeter, og se efter, om tabellen angiver flade mål eller omkreds. For en jakke, du vil bruge over en trøje, er ærmelængde og plads over brystet særligt relevante.</p>
+      </article>
+      <article>
+        <h3>Bed om det foto, du mangler</h3>
+        <p>Brug QC-fotos fra lageret til at kontrollere den valgte variant. Se efter, om mærkningen kan læses, og om sømme og lukninger er synlige. Bed om et nærfoto, hvis annoncen kun viser et katalogbillede, eller hvis detaljen er skjult.</p>
+      </article>
+      <article>
+        <h3>Sammenlign pakkens pris</h3>
+        <p>Ved fragt til Danmark kan transportøren bruge pakkens faktiske vægt eller dens volumenvægt, som beregnes ud fra kassens mål. Bed om et overslag med og uden skotøjsæske, hvis du overvejer at spare plads. Tjek også returfristen, før pakken sendes videre.</p>
+      </article>
+    </section>
+
+    <section aria-labelledby="billeder">
+      <h2 id="billeder">Hvad skal du kigge efter på billederne?</h2>
+      <p>Billederne illustrerer detaljer, du kan sammenligne, når du ser på tøj, hovedbeklædning og tilbehør.</p>
+      <div class="gallery">
+        <figure>
+          <img src="https://au.louisvuitton.com/images/is/image/lv/1/PP_VP_L/louis-vuitton-strap-and-trunk-square-90--M98339_PM1_Worn%20view.jpg?wid=420" width="420" height="420" loading="lazy" decoding="async" alt="Blå monogramjakke og mønstret Louis Vuitton-tørklæde på en model">
+          <figcaption>Louis Vuitton. Se på krave, knapper og jakkens længde.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://media.gucci.com/style/HEXFBFBFB_South_0_160_640x640/1751298339/838745_3HBC4_2600_001_100_0000_Light.jpg" width="640" height="640" loading="lazy" decoding="async" alt="Beige og brun Gucci-kasket i GG-lærred">
+          <figcaption>Gucci. Tjek også kaskettens lukning og justering.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://thereluxe.com/cdn/shop/files/PLB7STKEZ_Hermes_Carre_90_Scarf_Planifleurs_Silk_Orange_2023_Autumn_Winter_800x800_4250e3cc-df9d-41cd-a670-129a1dd4137d.jpg?v=1776451920&amp;width=420" width="420" height="420" loading="lazy" decoding="async" alt="Orange Hermès Carré 90 Planifleurs-silketørklæde med blomstermotiv">
+          <figcaption>Hermès. Bed om et nærfoto af kanten og stoffet.</figcaption>
+        </figure>
+        <figure>
+          <img src="https://assets.christiandior.com/is/image/diorprod/B1446HOMMTD000_E06?%24default_GHC%24=&amp;bfc=on&amp;crop=424%2C159%2C1122%2C1281&amp;wid=420&amp;qlt=80" width="420" height="479" loading="lazy" decoding="async" alt="Sølvfarvet Dior CD Icon-armbånd med kædeled">
+          <figcaption>Dior. Sammenlign låsetype og armbåndets længde.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section aria-labelledby="faq">
+      <h2 id="faq">Ofte stillede spørgsmål</h2>
+      <details open>
+        <summary>Hvad er et OKEYHAUL spreadsheet?</summary>
+        <p>Det er en oversigt, der samler produktlinks og gør det lettere at finde varer efter kategori. Denne uafhængige guide leder videre til kategorier på CAFANS.</p>
+      </details>
+      <details>
+        <summary>Hvad kan jeg se på QC-fotos?</summary>
+        <p>Du kan tjekke synlige detaljer som farve, mærkning og sømme. Bed om et foto med målebånd, hvis størrelsen er afgørende. Fotos alene kan ikke fastslå ægtheden.</p>
+      </details>
+      <details>
+        <summary>Hvordan anslår jeg den samlede pris i Danmark?</summary>
+        <p>Læg varepris, lokal fragt, agentens gebyrer og international fragt sammen. Undersøg mulige importomkostninger, og omregn beløbet til danske kroner med den kurs, du forventer at betale.</p>
+      </details>
+      <details>
+        <summary>Hvad gør jeg, hvis et produktlink er udløbet?</summary>
+        <p>Søg efter varenummer eller model i samme kategori. Sammenlign den nye annonces billeder, mål og variant med dine noter, før du bruger linket.</p>
+      </details>
+      <a class="cta" href="https://www.cafans.com">Gå til CAFANS</a>
+    </section>
+  </main>
+  <footer><div class="wrap"><a href="https://www.cafans.com">www.cafans.com</a> · Uafhængig dansk købsguide</div></footer>
+</body>
+</html>
